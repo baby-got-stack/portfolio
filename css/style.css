@@ -1,0 +1,44 @@
+:root{
+    --dark__bg__color: #222222;
+    --light__bg__color: #eeeeee;
+    --dark__accent__color: #289292;
+    --light__accent__color: #56e4e4;
+    --dark__font__color: #222222;
+    --neutral__font__color: #777777;
+    --light__font__color: #f2f0f0;
+    --normal__font__size: 1rem;
+    --large__font__size: 1.5rem;
+    --small__font__size: 0.75rem;
+    --normal__border__radius: 1rem;
+    --normal__font: 'M PLUS Rounded 1c', 'Varela Round', sans-serif;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    user-select: none;
+    font-family: var(--normal__font);
+    background-color: var(--light__bg__color);
+    visibility: hidden;
+    display: flex;
+    justify-content: center;
+}
+
+.body__dark__theme{
+    background-color: var(--dark__accent__color);
+}
+
+#theme__icon{
+    font-size: 2rem;
+    cursor: pointer;
+    color: var(--dark__font__color);
+}
+
+.container{
+    width: 75%;
+    border: 1px solid orangered;
+}
