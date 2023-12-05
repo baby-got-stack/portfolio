@@ -1,6 +1,6 @@
 :root{
-    --dark__bg__color: #222222;
-    --light__bg__color: #eeeeee;
+    --dark__bg__color: #183D3D;
+    --light__bg__color: #93B1A6;
     --dark__accent__color: #289292;
     --light__accent__color: #56e4e4;
     --dark__font__color: #222222;
@@ -28,26 +28,30 @@ body{
 }
 
 .body__dark__theme{
-    background-color: var(--dark__accent__color);
+    background-color: var(--dark__bg__color);
 }
 
 #theme__icon{
     font-size: 2rem;
     cursor: pointer;
-    color: var(--dark__font__color);
+    color: var(--light__font__color);
 }
 
 .container{
     width: 75%;
     border: 1px solid orangered;
     margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 14rem;
 }
 
-.navbar{
+.header{
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    color: var(--light__font__color);
 }
 
 .nav__hamburger{
@@ -55,6 +59,104 @@ body{
     justify-content: center;
     align-items: center;
     gap: 1rem;
+}
+
+.about__container{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10rem;
+    color: var(--light__font__color);
+}
+
+.about__text{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 2rem;
+    cursor: pointer;
+}
+
+.about__text p{
+    font-size: var(--normal__font__size);
+}
+
+.social__links{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    font-size: 2.25rem;
+}
+
+.social__links a{
+    color: #5C8374;
+}
+
+.about__img img{
+    width: auto;
+    height: 18rem;
+    border-radius: 1rem;
+}
+
+.projects__container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+}
+
+.project__row{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.project__card{
+    color: var(--light__font__color);
+    width: 25%;
+    padding: 2rem;
+    border-radius: 1rem;
+    background-color: #5C8374;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.project__card img{
+    width: auto;
+    height: 8rem;
+    border-radius: 1rem;
+    margin: auto;
+}
+
+.card__hidden{
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateX(-100%);
+    transition: all 1s;
+}
+
+.project__row .project__card:nth-child(2){
+    transition-delay: 200ms;
+}
+
+.project__row .project__card:nth-child(3){
+    transition-delay: 400ms;
+}
+
+@media(prefers-reduced-motion){
+    .card__hidden{
+        transition: none;
+    }
+}
+
+.card__show{
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(0);
 }
 
 .mobile__navbar{

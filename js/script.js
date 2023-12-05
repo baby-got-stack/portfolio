@@ -28,3 +28,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
     body.style.visibility = 'visible';
 });
+
+// Animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+          entry.target.classList.add('card__show');
+      } //remove else statement to only play once
+      /*
+       else {
+        entry.target.classList.remove('card__show');
+      }
+      */
+    });
+  });
+
+  const hiddenElements = document.querySelectorAll('.card__hidden');
+  hiddenElements.forEach((el) => observer.observe(el));
