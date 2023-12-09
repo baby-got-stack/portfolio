@@ -13,6 +13,23 @@
     --normal__font: 'M PLUS Rounded 1c', 'Varela Round', sans-serif;
 }
 
+::-webkit-scrollbar {
+    width: 10px;
+}
+  
+::-webkit-scrollbar-track {
+  background: #dedede;
+}
+ 
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 16px;
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: #555; 
+}
+
 *{
     padding: 0;
     margin: 0;
@@ -96,8 +113,8 @@ body{
 }
 
 .about__img img{
-    width: auto;
-    height: 18rem;
+    width: 18rem;
+    height: auto;
     border-radius: 1rem;
 }
 
@@ -126,15 +143,31 @@ body{
 }
 
 .project__card img{
-    width: auto;
-    height: 8rem;
+    width: 8rem;
+    height: auto;
     border-radius: 1rem;
     margin: auto;
 }
 
+.project__link{
+    background-color: var(--dark__bg__color);
+    border-radius: 1rem;
+    padding: 1rem 2rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.project__link a{
+    text-decoration: none;
+    color: var(--light__font__color);
+}
+
 .card__hidden{
     opacity: 0;
-    filter: blur(5px);
+    filter: blur(4px);
     transform: translateX(-100%);
     transition: all 1s;
 }
@@ -159,6 +192,13 @@ body{
     transform: translateX(0);
 }
 
+.desktop__nav__menu{
+    width: 10rem;
+    height: 500px;
+    background-color: #183D3D;
+    
+}
+
 .mobile__navbar{
     display: none;
     bottom: 0;
@@ -181,5 +221,20 @@ body{
 @media(max-width: 600px){
     .mobile__navbar{
         display: flex;
+    }
+}
+
+@media(max-width: 700px){
+    .about__container{
+        flex-direction: column-reverse;
+    }
+
+    .project__row{
+        flex-direction: column;
+        gap: 5rem;
+    }
+
+    .project__card{
+        width: 100%;
     }
 }
