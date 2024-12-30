@@ -1,0 +1,82 @@
+html
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Drag and Drop</title>
+        <style>
+            body {
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .griddy {
+                display: grid;
+                grid-auto-rows: 190px; /* Default row height */
+                grid-template-columns: repeat(4, 1fr);
+                grid-gap: 20px;
+                width: 800px;
+                padding: 20px;
+                border: 2px solid red;
+                grid-template-areas:
+                    "large1 large1 small1 small2"
+                    "large1 large1 small3 small4"
+                    "medium1 medium1 medium2 medium2";
+            }
+
+            .grid__item {
+                background: grey;
+                cursor: pointer;
+                border: 2px solid grey;
+                border-radius: 1rem;
+                cursor: grab;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .large {
+                grid-area: large1;
+                height: 380px; /* Accounts for gap */
+            }
+
+            .medium {
+                grid-area: medium1; /* Or medium-2 etc. */
+                height: 190px;
+            }
+
+            .small {
+                height: 190px;
+            }
+
+            .grid__item--dragged {
+                opacity: 0.2;
+                border: 2px dashed black;
+                color: grey;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Draggable grid using Sortable.js</h1>
+        <div class="griddy" data-draggable-grid>
+            <div class="grid__item large" data-grid-area="large1">Large 1</div>
+            <div class="grid__item small" data-grid-area="small1">Small 1</div>
+            <div class="grid__item small" data-grid-area="small2">Small 2</div>
+            <div class="grid__item small" data-grid-area="small3">Small 3</div>
+            <div class="grid__item small" data-grid-area="small4">Small 4</div>
+            <div class="grid__item medium" data-grid-area="medium1">
+                Medium 1
+            </div>
+            <div class="grid__item medium" data-grid-area="medium2">
+                Medium 2
+            </div>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.14.0/Sortable.min.js"></script>
+        <script>
+            // Your Sortable.js code here...
+        </script>
+    </body>
+</html>

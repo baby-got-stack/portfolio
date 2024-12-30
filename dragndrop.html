@@ -1,0 +1,147 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Drag and Drop</title>
+        <style>
+            /* body {
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                align-items: center;
+            }
+            .griddy {
+                display: grid;
+                grid-auto-rows: 190px;
+                grid-template-columns: repeat(
+                    4,
+                    1fr
+                );
+                grid-gap: 20px;
+                width: 800px;
+                height: 2000px;
+                padding: 20px;
+                width: 800px;
+                border: 2px solid red;
+
+            .grid__item {
+                background: grey;
+                cursor: pointer;
+                border: 2px solid grey;
+                border-radius: 1rem;
+                cursor: grab;
+                height: 190px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .large {
+                grid-column: span 2;
+                height: 400px;
+            }
+
+            .medium {
+                grid-column: span 2;
+                height: 190px;
+            }
+
+            .grid__item--dragged {
+                opacity: 0.2;
+                border: 2px dashed black;
+                color: grey;
+            } */
+
+            body {
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .griddy {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr); /* 4 columns */
+                row-gap: 20px; /* Gap between rows */
+                column-gap: 20px; /* Gap between columns */
+                width: 1000px;
+                padding: 20px;
+                border: 2px solid red;
+                grid-auto-rows: minmax(
+                    190px,
+                    auto
+                ); /* Allow rows to grow as needed */
+            }
+
+            .grid__item {
+                background: grey;
+                cursor: pointer;
+                border: 2px solid grey;
+                border-radius: 1rem;
+                cursor: grab;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .large {
+                grid-column: span 2; /* Occupies two columns */
+                grid-row: span 2; /* Occupies two rows */
+            }
+
+            .medium {
+                grid-column: span 2; /* Occupies two columns */
+                grid-row: span 1; /* Occupies one row */
+            }
+
+            .grid__item--dragged {
+                opacity: 0.2;
+                border: 2px dashed black;
+                color: grey;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Draggable grid using Sortable.js</h1>
+        <div class="griddy" data-draggable-grid>
+            <div class="grid__item">1</div>
+            <div class="grid__item">2</div>
+            <div class="grid__item">3</div>
+            <div class="grid__item">4</div>
+            <div class="grid__item">5</div>
+            <div class="grid__item">6</div>
+            <div class="grid__item">7</div>
+            <div class="grid__item">8</div>
+            <div class="grid__item large">9</div>
+            <div class="grid__item large">10</div>
+            <div class="grid__item medium">11</div>
+            <div class="grid__item medium">12</div>
+            <div class="grid__item medium">13</div>
+            <div class="grid__item medium">14</div>
+            <div class="grid__item medium">15</div>
+            <div class="grid__item medium">16</div>
+        </div>
+    </body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.14.0/Sortable.min.js"></script>
+    <script>
+        const draggableGrids = document.querySelectorAll(
+            "[data-draggable-grid]",
+        );
+        if (draggableGrids) {
+            // Initialise drag and drop grid.
+            draggableGrids.forEach((grid) => {
+                Sortable.create(grid, {
+                    animation: 200,
+                    ghostClass: "grid__item--dragged",
+                });
+
+                const tiles = grid.children;
+                Array.from(tiles).forEach((tile) => {
+                    tile.addEventListener("dragend", () => {
+                        console.log("Item dragged");
+                    });
+                });
+            });
+        }
+    </script>
+</html>
